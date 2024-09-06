@@ -13,16 +13,18 @@ export default function PageList({ className }: PageListProps) {
       title,
     }));
   return (
-    <div className={`flex gap-3 flex-wrap ${className}`}>
+    <ul className={`flex gap-3 flex-wrap ${className}`}>
       {pagesArray.map((page) => (
-        <Link
-          key={page.slug}
-          href={`/${page.slug}`}
-          className="text-white inline-flex items-center justify-center bg-white/10 hover:bg-white/20 transition-all duration-500 rounded-[var(--border-radius)] px-3 py-1 tablet:text-[12px]"
-        >
-          {page.title}
-        </Link>
+        <li>
+          <Link
+            key={page.slug}
+            href={`/${page.slug}`}
+            className="text-white inline-flex items-center justify-center bg-white/10 hover:bg-white/20 transition-all duration-500 rounded-[var(--border-radius)] px-3 py-1 tablet:text-[12px]"
+          >
+            {page.title}
+          </Link>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

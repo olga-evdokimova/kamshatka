@@ -61,7 +61,7 @@ export default function About() {
       <div className="">
         <PageList
           data={data}
-          className="tablet:gap-[8px] mb-[30px] [&>a]:bg-[var(--accent)] hover:[&>a]:bg-[#6E95E0]/20 hover:[&>a]:text-[var(--accent)] mt-[20px] transition-all duration-500"
+          className="tablet:gap-[8px] mb-[30px] [&>li>a]:bg-[var(--accent)] hover:[&>li>a]:bg-[#6E95E0]/20 hover:[&>li>a]:text-[var(--accent)] mt-[20px] transition-all duration-500"
         />
       </div>
     </Container>
