@@ -117,7 +117,7 @@ const NavBurger = () => {
         width={"320px"}
         placement="right"
       >
-        <div className="hidden  laptop:flex flex-col items-end gap-[30px] text-[20px] max-w-[1470px] mx-auto px-[25px] tablet:px-[25px]  pt-[100px] relative ">
+        <ul className="hidden  laptop:flex flex-col items-end gap-[30px] text-[20px] max-w-[1470px] mx-auto px-[25px] tablet:px-[25px]  pt-[100px] relative ">
           <CloseOutlined
             className="text-[40px] text-white
             absolute top-[23px]  right-[15px] z-50"
@@ -126,17 +126,17 @@ const NavBurger = () => {
           {links.map(
             (link, index) =>
               (link.id !== "tours" || isHomePage) && (
-                <div
+                <li
                   key={index}
                   className="text-white hover:text-[var(--accent)] transition-all duration-500"
                 >
                   <Link onClick={onClose} href={`#${link.id}`}>
                     {link.title}
                   </Link>
-                </div>
+                </li>
               )
           )}
-        </div>
+        </ul>
       </Drawer>
     </ConfigProvider>
   );
