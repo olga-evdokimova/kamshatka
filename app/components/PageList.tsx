@@ -15,9 +15,8 @@ export default function PageList({ className }: PageListProps) {
   return (
     <ul className={`flex gap-3 flex-wrap ${className}`}>
       {pagesArray.map((page) => (
-        <li>
+        <li key={page.slug}>
           <Link
-            key={page.slug}
             href={`/${page.slug}`}
             className="text-white inline-flex items-center justify-center bg-white/10 hover:bg-white/20 transition-all duration-500 rounded-[var(--border-radius)] px-3 py-1 tablet:text-[12px]"
           >
