@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #1E1E1E;
+    --accent: #6E95E0;
+    --button:#8ACA88;
+    --border-radius: 10px;
+  }
+}
+ 
+@layer base {
+  * {
+    // @apply border-border;
+  }
+  body {
+    @apply text-[var(--primary)] font-medium leading-normal bg-white;
+  }
+  button{
+    font-family: var(--font-manrope) !important;
+    font-weight: 500 !important;
+  }
+}
