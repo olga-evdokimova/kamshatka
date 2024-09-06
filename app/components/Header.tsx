@@ -64,14 +64,16 @@ const Nav = () => {
       {links.map(
         (link, index) =>
           (link.id !== "tours" || isHomePage) && (
-            <div key={index} className="">
+            <ul key={index} className="">
+              <li>
               <Link
                 href={`#${link.id}`}
                 className="hover:text-[var(--accent)] transition-all duration-500"
               >
                 {link.title}
-              </Link>
-            </div>
+                </Link>
+                </li>
+            </ul>
           )
       )}
     </nav>
