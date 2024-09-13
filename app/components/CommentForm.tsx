@@ -1,10 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ConfigProvider, Form, Input } from "antd";
 import z from "zod";
 import { createSchemaFieldRule } from "antd-zod";
 import emailjs from "@emailjs/browser";
-import { useModalStore } from "../../lib/state/store";
 import CustomButton from "./CustomButton";
 const CustomFormValidationSchema = z.object({
   name: z.string({ required_error: "Заполните поле Имя" }).min(1),
@@ -23,28 +22,25 @@ const rule = createSchemaFieldRule(CustomFormValidationSchema);
 
 export default function ContactForm() {
   const [form] = Form.useForm();
-  const closeBookModal = useModalStore((state) => state.closeBookModal);
-
+  const [successMessage, setSuccessMessage] = useState("");
   const onFinish = (values) => {
     console.log("Успех:", values);
     emailjs
       .send("service_90rijbt", "template_i0v1h9q", values, "BbtTeCqanQMVN9aJp")
       .then(
-        (response) => {
-          console.log("Успех!", response.status, response.text);
-          document.getElementById("message").innerText =
-            "Ваш отзыв принят. После проверки ваш отзыв публикуется на сайте.";
+        (result) => {
+          console.log(result.text);
           form.resetFields();
-          setTimeout(() => {
-            document.getElementById("message").innerText = "";
-            closeBookModal();
-          }, 3000);
+          setSuccessMessage(
+            "Ваш отзыв принят. После проверки отзыв публикуется на сайте."
+          );
         },
         (error) => {
-          console.log("НЕ УДАЛОСЬ...", error);
+          console.log(error.text);
         }
       );
   };
+
   const onFinishFailed = (errorInfo) => {
     console.log("НЕ УДАЛОСЬ:", errorInfo);
   };
@@ -125,11 +121,13 @@ export default function ContactForm() {
             </CustomButton>
           </div>
         </Form.Item>
-        <div id="message" className=" text-white text-center"></div>
         <p className="text-white/50 w-[80%] mx-auto text-[12px] text-center mb-[15px]">
           Номер телефона не будет опубликован, он нужен для подтверждения вашего
           отзыва
         </p>
+        {successMessage && (
+          <p className="text-white text-center">{successMessage}</p>
+        )}
       </Form>
     </ConfigProvider>
   );

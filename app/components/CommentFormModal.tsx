@@ -9,7 +9,7 @@ export default function CommentFormModal() {
   const { isModalOpen, openModal, closeModal } = useModalStore();
 
   return (
-    <div className="laptop:hidden">
+    <div className="">
       <CustomButton
         variant="primary"
         onClick={openModal}

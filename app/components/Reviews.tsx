@@ -27,7 +27,7 @@ export default function Reviews() {
         </div> */}
       </Container>
       <div className="pt-[50px] tablet:pt-[10px] relative max-w-[1320px] mx-auto">
-        <Container PaddingTop={false}>
+        <Container PaddingTop={false} PaddingBottom={false}>
           <Swiper
             className="swiperReviews"
             modules={[Scrollbar, Navigation]}
@@ -83,7 +83,9 @@ export default function Reviews() {
             <ArrowLeftOutlined className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] [&>svg]:fill-white w-[25px] [&>svg]:w-full" />
           </div>
         </div>
-        <CommentFormModal />
+        <Container PaddingTop={false} className="mt-[10px]" >
+          <CommentFormModal />
+        </Container>
       </div>
     </div>
   );
