@@ -9,6 +9,7 @@ import Container from "./Container";
 import Title from "./Title";
 import { comments } from "../consts";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@ant-design/icons";
+import CommentFormModal from "./CommentFormModal";
 export default function Reviews() {
   return (
     <div className="bg-[var(--accent)] relative" id="comments">
@@ -82,6 +83,7 @@ export default function Reviews() {
             <ArrowLeftOutlined className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] [&>svg]:fill-white w-[25px] [&>svg]:w-full" />
           </div>
         </div>
+        <CommentFormModal />
       </div>
     </div>
   );

@@ -1,19 +1,19 @@
 import { create } from "zustand";
 
 interface ModalStore {
-  isPhoneModalOpen: boolean;
+  isModalOpen: boolean;
   isBookModalOpen: boolean;
-  openPhoneModal: () => void;
-  closePhoneModal: () => void;
+  openModal: () => void;
+  closeModal: () => void;
   openBookModal: () => void;
   closeBookModal: () => void;
 }
 
 export const useModalStore = create<ModalStore>((set) => ({
-  isPhoneModalOpen: false,
+  isModalOpen: false,
   isBookModalOpen: false,
-  openPhoneModal: () => set({ isPhoneModalOpen: true }),
-  closePhoneModal: () => set({ isPhoneModalOpen: false }),
+  openModal: () => set({ isModalOpen: true }),
+  closeModal: () => set({ isModalOpen: false }),
   openBookModal: () => set({ isBookModalOpen: true }),
   closeBookModal: () => set({ isBookModalOpen: false }),
 }));
