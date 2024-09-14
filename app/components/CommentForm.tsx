@@ -21,7 +21,7 @@ const CustomFormValidationSchema = z.object({
 });
 const rule = createSchemaFieldRule(CustomFormValidationSchema);
 // app/components/CommentForm.tsx
-export default function ContactForm() {
+export default function ContactForm({ closeModal }) {
   const [form] = Form.useForm();
   const [successMessage, setSuccessMessage] = useState("");
 
@@ -36,6 +36,11 @@ export default function ContactForm() {
           setSuccessMessage(
             "Ваш отзыв принят. После проверки отзыв публикуется на сайте."
           );
+          // Закрыть окно через 3 секунды
+          setTimeout(() => {
+            closeModal();
+            setSuccessMessage(""); // Очистить сообщение об успехе
+          }, 3000);
         },
         (error) => {
           console.log(error.text);

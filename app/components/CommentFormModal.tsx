@@ -47,7 +47,7 @@ export default function CommentFormModal() {
           footer={null}
           onCancel={closeModal}
         >
-          <CommentForm />
+          <CommentForm closeModal={closeModal} />
         </Modal>
       </ConfigProvider>
     </div>
