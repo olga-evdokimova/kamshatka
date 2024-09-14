@@ -44,12 +44,12 @@ export default function ContactForm() {
   const closeBookModal = useModalStore((state) => state.closeBookModal);
 
   const onFinish = (values) => {
-    console.log("Успех:", values);
+    // console.log("Успех:", values);
     emailjs
       .send("service_90rijbt", "template_rc9v2t9", values, "BbtTeCqanQMVN9aJp")
       .then(
         (response) => {
-          console.log("Успех!", response.status, response.text);
+          // console.log("Успех!", response.status, response.text);
           document.getElementById("message").innerText =
             "Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее удобное время.";
           form.resetFields();

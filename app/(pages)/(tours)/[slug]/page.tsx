@@ -36,7 +36,6 @@ export default function PageSlug() {
                 .querySelector('meta[name="description"]')
                 .setAttribute("content", metadata.description);
         }
-        console.log("metadata", metadata);
     }, [metadata]);
 
     return (

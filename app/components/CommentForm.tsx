@@ -37,12 +37,12 @@ const CommentForm = forwardRef((props, ref) => {
   }));
 
   const onFinish = (values) => {
-    console.log("Успех:", values);
+    // console.log("Успех:", values);
     emailjs
       .send("service_90rijbt", "template_i0v1h9q", values, "BbtTeCqanQMVN9aJp")
       .then(
         (result) => {
-          console.log(result.text);
+          // console.log(result.text);
           form.resetFields();
           setSuccessMessage(
             "Ваш отзыв принят. После проверки отзыв публикуется на сайте."
@@ -145,5 +145,5 @@ const CommentForm = forwardRef((props, ref) => {
     </ConfigProvider>
   );
 });
-
+CommentForm.displayName = "CommentForm";
 export default CommentForm;
