@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { ConfigProvider, Modal } from "antd";
 import { useModalStore } from "../../lib/state/store";
 import CustomButton from "./CustomButton";
@@ -7,6 +7,16 @@ import CommentForm from "./CommentForm";
 // app\components\CommentFormModal.tsx
 export default function CommentFormModal() {
   const { isModalOpen, openModal, closeModal } = useModalStore();
+  const formRef = useRef(null);
+  
+  const handleCloseModal = () => {
+    if (formRef.current) {
+      formRef.current.resetFields(); // Сбрасываем форму
+      formRef.current.clearSuccessMessage(); // Очищаем сообщение об успехе
+    }
+    closeModal(); // Закрываем модальное окно
+  };
+
 
   return (
     <div className="">
@@ -45,9 +55,9 @@ export default function CommentFormModal() {
           className="border border-white backdrop-blur-[21.90px] rounded-[var(--border-radius)] "
           open={isModalOpen}
           footer={null}
-          onCancel={closeModal}
+          onCancel={handleCloseModal}
         >
-          <CommentForm closeModal={closeModal} />
+          <CommentForm ref={formRef} />
         </Modal>
       </ConfigProvider>
     </div>

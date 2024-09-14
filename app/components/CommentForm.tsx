@@ -6,6 +6,7 @@ import { createSchemaFieldRule } from "antd-zod";
 import emailjs from "@emailjs/browser";
 import CustomButton from "./CustomButton";
 import { useModalStore } from "../../lib/state/store";
+import { forwardRef, useImperativeHandle } from "react";
 const CustomFormValidationSchema = z.object({
   name: z.string({ required_error: "Заполните поле Имя" }).min(1),
   phone: z
@@ -20,10 +21,21 @@ const CustomFormValidationSchema = z.object({
     ),
 });
 const rule = createSchemaFieldRule(CustomFormValidationSchema);
+
+
 // app/components/CommentForm.tsx
-export default function ContactForm({ closeModal }) {
+const CommentForm = forwardRef((props, ref) => {
   const [form] = Form.useForm();
   const [successMessage, setSuccessMessage] = useState("");
+
+  useImperativeHandle(ref, () => ({
+    resetFields() {
+      form.resetFields(); // Сброс формы
+    },
+    clearSuccessMessage() {
+      setSuccessMessage(""); // Очистка сообщения об успехе
+    },
+  }));
 
   const onFinish = (values) => {
     console.log("Успех:", values);
@@ -36,11 +48,6 @@ export default function ContactForm({ closeModal }) {
           setSuccessMessage(
             "Ваш отзыв принят. После проверки отзыв публикуется на сайте."
           );
-          // Закрыть окно через 3 секунды
-          setTimeout(() => {
-            closeModal();
-            setSuccessMessage(""); // Очистить сообщение об успехе
-          }, 3000);
         },
         (error) => {
           console.log(error.text);
@@ -129,7 +136,7 @@ export default function ContactForm({ closeModal }) {
           </div>
         </Form.Item>
         {successMessage && (
-          <p className="text-white text-center">{successMessage}</p>
+          <p className="text-white text-center mb-[20px]">{successMessage}</p>
         )}
         <p className="text-white/50 w-[80%] mx-auto text-[12px] text-center mb-[15px]">
           Номер телефона не будет опубликован, он нужен для подтверждения вашего
@@ -138,4 +145,6 @@ export default function ContactForm({ closeModal }) {
       </Form>
     </ConfigProvider>
   );
-}
+});
+
+export default CommentForm;
