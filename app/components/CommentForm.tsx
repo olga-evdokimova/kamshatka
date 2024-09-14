@@ -5,6 +5,7 @@ import z from "zod";
 import { createSchemaFieldRule } from "antd-zod";
 import emailjs from "@emailjs/browser";
 import CustomButton from "./CustomButton";
+import { useModalStore } from "../../lib/state/store";
 const CustomFormValidationSchema = z.object({
   name: z.string({ required_error: "Заполните поле Имя" }).min(1),
   phone: z
@@ -19,10 +20,11 @@ const CustomFormValidationSchema = z.object({
     ),
 });
 const rule = createSchemaFieldRule(CustomFormValidationSchema);
-
+// app/components/CommentForm.tsx
 export default function ContactForm() {
   const [form] = Form.useForm();
   const [successMessage, setSuccessMessage] = useState("");
+
   const onFinish = (values) => {
     console.log("Успех:", values);
     emailjs
@@ -121,13 +123,13 @@ export default function ContactForm() {
             </CustomButton>
           </div>
         </Form.Item>
+        {successMessage && (
+          <p className="text-white text-center">{successMessage}</p>
+        )}
         <p className="text-white/50 w-[80%] mx-auto text-[12px] text-center mb-[15px]">
           Номер телефона не будет опубликован, он нужен для подтверждения вашего
           отзыва
         </p>
-        {successMessage && (
-          <p className="text-white text-center">{successMessage}</p>
-        )}
       </Form>
     </ConfigProvider>
   );
