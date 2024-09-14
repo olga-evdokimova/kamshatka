@@ -5,7 +5,6 @@ import z from "zod";
 import { createSchemaFieldRule } from "antd-zod";
 import emailjs from "@emailjs/browser";
 import CustomButton from "./CustomButton";
-import { useModalStore } from "../../lib/state/store";
 import { forwardRef, useImperativeHandle } from "react";
 const CustomFormValidationSchema = z.object({
   name: z.string({ required_error: "Заполните поле Имя" }).min(1),
