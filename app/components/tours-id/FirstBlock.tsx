@@ -20,9 +20,9 @@ export default function FirstBlock() {
             {pageData.title}
           </h1>
           {pageData.description && (
-            <div className="text-white/70 w-[40%] pt-[10px] laptop:w-[80%] text-[12px]">
+            <p className="text-white/70 w-[40%] pt-[10px] laptop:w-[80%] text-[12px]">
               {pageData.description}
-            </div>
+            </p>
           )}
         </div>
         <div className="flex gap-[20px] h-[400px] laptop:h-[340px] w-full">

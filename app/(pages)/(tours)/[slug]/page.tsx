@@ -24,10 +24,15 @@ export default function PageSlug() {
     }
 
     // Memoize the metadata object
-    const metadata = useMemo(() => ({
+    const metadata = useMemo(
+      () => ({
         title: pageData.title,
-        description: pageData.description,
-    }), [pageData]);
+        description: `${
+          pageData.description
+        } ${"Ищете незабываемые экскурсии на Камчатке, наши туры на Камчатку предоставят вам возможность увидеть эти природные чудеса. Не упустите шанс испытать адреналин в джип-туре по Камчатке."}`,
+      }),
+      [pageData]
+    );
 
     React.useEffect(() => {
         if (metadata) {
