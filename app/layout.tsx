@@ -5,12 +5,12 @@ import Footer from "./components/Footer";
 import { Manrope, Unbounded} from "next/font/google";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Head from "next/head";
-
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Индивидуальные джип-туры на Камчатке",
   description:
-    "Индивидуальные джип-туры на Камчатке - отличная возможность окунуться в уникальную природу Камчатки под руководством опытного гида Сергея Рудковского. Проведите незабываемое время, исследуя самые красивые места Камчатки на джипе! Гарантированно яркие впечатления и увлекательные приключения.",
+    "Экскурсии и Джип-туры на Камчатке - отличная возможность окунуться в уникальную природу Камчатки под руководством опытного гида Сергея Рудковского. Однодневные джип-туры — это идеальный выбор для тех, кто хочет за короткое время ощутить всю силу природы полуострова, подняться на вулканы или посетить горячие источники.",
 };
 
 const manrope = Manrope({
@@ -38,6 +38,7 @@ export default function RootLayout({ children }) {
           <Footer />
           <ScrollToTopButton />
         </div>
+        <Analytics />
       </body>
     </html>
   );
