@@ -69,7 +69,7 @@ export const data = {
     info_date: "июль — сентябрь",
     info_days: "1 день",
     info_person: "до 4 человек",
-    info_price: "10,000 руб",
+    info_price: "10,001 руб",
     image_1: "/ekstruziya-verblyud/ekstruziya-verblyud-01.jpg",
     image_2: "/khalatyrskiy-plyazh/khalatyrskiy-plyazh-01.png",
     image_3: "/khalatyrskiy-plyazh/khalatyrskiy-plyazh-02.png",
