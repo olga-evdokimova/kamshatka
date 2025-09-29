@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <div className="bg-[var(--primary)] h-screen">
       <Container className="h-full text-[var(--accent)] text-center ">
-        <h2 className="text-9xl tablet:text-[100px] font-['unbounded'] " title="404">
+        <h2 className="text-9xl tablet:text-[100px] font-unbounded " title="404">
           404
         </h2>
         <p title="Страница не найдена" className="text-[20px] pb-[30px]">

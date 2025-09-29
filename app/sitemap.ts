@@ -56,5 +56,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'monthly',
             priority: 0.9,
         },
+          {
+            url: 'https://jeeptourkamchatka.ru/tolmachevo_medvezhya_chasha',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
+          {
+            url: 'https://jeeptourkamchatka.ru/daiki_koryakskogo_vulkana',
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.9,
+        },
     ]
 }

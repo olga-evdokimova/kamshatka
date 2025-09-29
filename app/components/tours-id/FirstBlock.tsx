@@ -16,7 +16,7 @@ export default function FirstBlock() {
     <section className="bg-[var(--primary)]">
       <Container>
         <div className="flex justify-between pb-[32px] laptop:block">
-          <h1 className="font-['unbounded'] text-[45px] tablet:text-[25px] uppercase text-white pr-[30px]">
+          <h1 className="font-unbounded text-[45px] tablet:text-[25px] uppercase text-white pr-[30px]">
             {pageData.title}
           </h1>
           {pageData.description && (
@@ -25,16 +25,8 @@ export default function FirstBlock() {
             </p>
           )}
         </div>
-        <div className="flex gap-[20px] h-[400px] laptop:h-[340px] w-full">
-          <div className="relative w-[37%] rounded-[var(--border-radius)] overflow-hidden">
-            {/* <Image
-              src={pageData.image_1}
-              fill
-              placeholder={`data:image/${consts.blur}`}
-              sizes="380"
-              alt={data[slug].title}
-              className="object-cover hover:scale-105 transition-all duration-500 "
-            /> */}
+        <div className="flex gap-[20px] h-[400px]  w-full tablet:flex-col tablet:h-full">
+          <div className="relative w-[37%] tablet:w-full rounded-[var(--border-radius)] overflow-hidden">
             <Image
               width="100%"
               height="100%"
@@ -43,15 +35,7 @@ export default function FirstBlock() {
               alt={pageData.title}
             />
           </div>
-          <div className="relative w-[63%] rounded-[var(--border-radius)] overflow-hidden">
-            {/* <Image
-              src={pageData.image_2}
-              fill
-              placeholder={`data:image/${consts.blur}`}
-              sizes="780"
-              alt={pageData.title}
-              className="object-cover object-top hover:scale-105 transition-all duration-500"
-            /> */}
+         {/*  <div className="relative w-[63%] tablet:w-full rounded-[var(--border-radius)] overflow-hidden">
             <Image
               width="100%"
               height="100%"
@@ -59,6 +43,32 @@ export default function FirstBlock() {
               className="object-cover bg-[var(--accent)]"
               alt={pageData.title}
             />
+          </div> */}
+          <div className="relative w-[63%] tablet:w-full rounded-[var(--border-radius)] overflow-hidden">
+            {pageData.video_1 ? (
+              // Если есть видео, выводим его
+              <video
+                controls
+                loop
+                muted
+                playsInline
+                width="100%"
+                height="100%"
+                className="object-cover w-full h-full bg-[var(--accent)]"
+              >
+                <source src={pageData.video_1} type="video/mp4" />
+               Ваш браузер не поддерживает тег video.
+              </video>
+            ) : (
+              // Иначе показываем изображение
+              <Image
+                width="100%"
+                height="100%"
+                src={pageData.image_2}
+                className="object-cover bg-[var(--accent)]"
+                alt={pageData.title}
+              />
+            )}
           </div>
         </div>
         <Link

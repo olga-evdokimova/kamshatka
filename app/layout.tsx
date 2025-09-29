@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import { Manrope, Unbounded} from "next/font/google";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Head from "next/head";
-import { Analytics } from "@vercel/analytics/react";
+
 
 export const metadata = {
   title: "Индивидуальные джип-туры на Камчатке",
@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
           <Footer />
           <ScrollToTopButton />
         </div>
-        <Analytics />
+   
       </body>
     </html>
   );

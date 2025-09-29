@@ -9,7 +9,7 @@ export default function FirstScreen() {
   return (
     <div className="bg-[var(--primary)]">
       <Container>
-        <h1 className="font-['unbounded'] text-[45px] tablet:text-[25px] uppercase text-white mb-[20px]">
+        <h1 className="font-unbounded text-[45px] tablet:text-[25px] uppercase text-white mb-[20px]">
           Индивидуальные Джип-туры
           <span className="text-[var(--accent)] block">на Камчатке</span>
         </h1>
